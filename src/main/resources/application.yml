@@ -28,3 +28,9 @@ spring:
   thymeleaf:
     cache: false
     prefix: file:src/main/resources/templates/
+logging:
+  level:
+    root: INFO
+    com.example.likegram_ai: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
+    org.hibernate.orm.jdbc.extract: TRACE
