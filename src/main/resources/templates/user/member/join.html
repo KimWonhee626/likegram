@@ -1,1 +1,18 @@
-회원가입 폼
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+    <form th:action method="POST" class="p-10 flex flex-col gap-4">
+        <div>
+            <h1>회원가입</h1>
+        </div>
+        <div>
+            <input type="text" name="username" placeholder="아이디" class="input input-bordered">
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="비밀번호" class="input input-bordered">
+        </div>
+        <div>
+            <input type="submit" name="회원가입" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+</html>
