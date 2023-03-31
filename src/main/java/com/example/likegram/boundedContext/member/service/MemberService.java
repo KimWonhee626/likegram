@@ -16,7 +16,6 @@ import java.util.Optional;
 public class MemberService {
 
     private final PasswordEncoder passwordEncoder;
-
     private final MemberRepository memberRepository;
 
     public Optional<Member> findByUsername(String username) {

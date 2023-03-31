@@ -4,55 +4,37 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
     <link rel="stylesheet" href="https://jhs512.github.io/toastr/toastr.css">
 
-    <script>
-        toastr.options = {
-            closeButton: true,
-            debug: false,
-            newestOnTop: true,
-            progressBar: true,
-            positionClass: "toast-top-right",
-            preventDuplicates: false,
-            onclick: null,
-            showDuration: "300",
-            hideDuration: "1000",
-            timeOut: "5000",
-            extendedTimeOut: "1000",
-            showEasing: "swing",
-            hideEasing: "linear",
-            showMethod: "fadeIn",
-            hideMethod: "fadeOut"
-        };
-
-        function toastNotice(msg) {
-            toastr["success"](msg, "알림");
-        }
-
-        function toastWarning(msg) {
-            toastr["warning"](msg, "알림");
-        }
-    </script>
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" th:href="@{/bootstrap.min.css}">
-
     <!-- likegram CSS -->
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}">
 
     <title>Hello, LikeGram!</title>
 </head>
+
 <body>
+<link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css"/>
+<script src = "https://cdn.tailwindcss.com"></script>
+
+<!--네비게이션 바-->
+<header>
+    <a href="/"  class="btn btn-link">LikeGram</a>
+    <a href="/member/login" sec:authorize="isAnonymous()" class="btn btn-link">로그인</a>
+    <a href="/member/join" sec:authorize="isAnonymous()" class="btn btn-link">회원가입</a>
+    <a href="javascript:;" sec:authorize="isAuthenticated()" onclick="$(this).next().submit();" class="btn btn-link">로그아웃</a>
+    <form th:action="|/member/logout|" method="POST"></form>
+</header>
+
 <!-- 기본 템플릿 안에 삽입될 내용 Start -->
 <th:block layout:fragment="content"></th:block>
 <!-- 기본 템플릿 안에 삽입될 내용 End -->
 
-<link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css"/>
-<script src = "https://cdn.tailwindcss.com"></script>
+
 <!-- 자바스크립트 Start -->
 <th:block layout:fragment="script"></th:block>
 <!-- 자바스크립트 End -->
